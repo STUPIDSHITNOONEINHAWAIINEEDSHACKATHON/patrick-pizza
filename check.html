@@ -1,0 +1,73 @@
+<!doctype html>
+<head>
+	<meta charset="utf-8" />
+	<script src="tos.js"></script>
+</head>
+<script>
+	console.log(tos);
+	function did(s1) {
+		return document.getElementById(s1);
+	}
+	function check_tos() {
+		tos1 = did('tos1').innerHTML;
+		tos2 = did('tos2').value;
+		console.log(tos1);
+		console.log(tos2);
+
+		if (tos1 != tos2) {
+			alert('incorrect please try again');
+		}
+		else {
+			tos1 = did('tos1').innerHTML = tos1 + ' and then...';
+			alert('Almost! The text you entered does not match exactly. Please try again.');
+		}
+	}
+	function ott() {
+		did('agree').style.margin = '100' + 'px';
+	}
+</script>
+<style>
+	#tos1 {
+		display: none;
+		}
+	body {
+		margin: 0px;
+		padding: 0x;
+		text-align: center;
+		}
+	#content {
+		margin: 0 auto;
+		width: 720px;
+		padding: 20px;
+		text-align: left;
+		border: 1px solid #ccc;
+		margin-bottom: 20px;
+		}
+	textarea {
+		width: 700px;
+		height: 100px;
+		}
+	img {
+		margin-left: 15px;
+		}
+</style>
+
+<img src="aheader.png" />
+
+<!-- https://www.apple.com/legal/internet-services/itunes/us/terms.html -->
+<div id="content">
+	<div id="tos1">I agree</div>
+	<div id="real_tos">These terms and conditions create a contract between you and Apple (the "Agreement"). Please read the Agreement carefully. To confirm your understanding and acceptance of the Agreement, click "Agree."</div>
+
+	<h2>Confirmation of Understanding</h2>
+	<p>Please retype the terms and conditions below:</p>
+	<textarea id="tos2"></textarea>
+
+	<p>We reserve the right to change the terms and conditions at any time for any reason.</p>
+	<button id="agree" onClick="check_tos();">I agree</button>
+</div>
+
+<img src="afooter.png" />
+<script>
+	did('real_tos').innerHTML = tos;
+</script>
